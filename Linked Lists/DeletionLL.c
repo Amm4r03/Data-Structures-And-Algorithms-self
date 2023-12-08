@@ -26,10 +26,31 @@ void printList()
 
     while (traverse != NULL)
     {
-        print("%d ", traverse->data);
+        printf("%d ", traverse->data);
         traverse = traverse->next;
     }
     printf("\n");
+}
+
+void deleteNode(struct Node** head, int key)
+{
+    int temp;
+    if (head == NULL)
+    {
+        print("\n===EMPTY LINKED LIST===\n");
+        return;
+    }
+
+    else
+    {
+        if ((*head)->data == key)
+        {
+            struct Node* temp = *head;
+            *head = (*head)->next;
+            free(temp);
+            return;
+        }
+    }
 }
 
 int main()
