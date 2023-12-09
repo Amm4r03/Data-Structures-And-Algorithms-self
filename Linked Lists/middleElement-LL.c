@@ -100,7 +100,7 @@ int main()
     }
 
     printList();
-    printf("%d\n", listLength());
+    printf("current length of linked list : %d\n", listLength());
 
     printf("middle element of linked list : %d\n", returnMiddleElement());
     return 0;
