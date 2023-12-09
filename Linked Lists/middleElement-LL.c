@@ -73,25 +73,31 @@ int returnMiddleElement()
 int listLength()
 {
     int length;
-
     struct Node* traverse = head;
-
     while(traverse != NULL)
     {
         length +=1;
         traverse = traverse->next;
     }
-
     return length;
 }
 
 int main()
 {
     head = NULL;
-    insertNode(34);
-    insertNode(64);
-    insertNode(54);
-    insertNode(22);
+
+    int entries;
+
+    printf("Enter the number of elements to be added in the linked list : ");
+    scanf("%d", &entries);
+
+    for(int i = 0; i < entries; i++)
+    {
+        int value;
+        printf("Enter the value for node %d : ", i+1);
+        scanf("%d", &value);
+        insertNode(value);
+    }
 
     printList();
     printf("%d\n", listLength());
