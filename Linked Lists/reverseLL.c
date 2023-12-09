@@ -32,9 +32,30 @@ void printList()
     printf("\n");
 }
 
-void reverseList()
+struct Node* reverseList()
 {
-    struct Node* currentNode, previousNode, nextNode;
+    struct Node* currentNode = head;
+    struct Node* prevNode = NULL;
+    struct Node* nextNode = NULL;
+
+    if (head == NULL)
+    {
+        printf("===UNDERFLOW===");
+        return head;
+    }
+
+    while (currentNode != NULL)
+    {
+        nextNode = currentNode->next;
+        currentNode->next = prevNode;
+
+        prevNode = currentNode;
+        currentNode = nextNode;
+    }
+
+    head = prevNode;
+    
+    return head;
 }
 
 int main()
@@ -47,6 +68,9 @@ int main()
     insertNode(34);
     insertNode(123);
 
+    printList();
+
+    reverseList();
     printList();
 
     return 0;
