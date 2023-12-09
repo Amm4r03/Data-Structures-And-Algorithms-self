@@ -11,7 +11,7 @@ struct Node
 
 struct Node* head;
 
-void insertNode(int value)
+void insertNode(int value)      //  inserts nodes at the end of the linked list
 {
     struct Node* newNode;
     newNode->data = value;
@@ -31,6 +31,18 @@ void insertNode(int value)
         }
         temp->next = newNode;
     }   
+}
+
+void printList()
+{
+    struct Node* traverse;
+    traverse = head;
+    while (traverse != head)
+    {
+        printf("%d ", traverse->data);
+        traverse = traverse->next;
+    }
+    printf("\n");
 }
 
 int main()
