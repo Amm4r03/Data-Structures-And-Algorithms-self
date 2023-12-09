@@ -13,7 +13,7 @@ struct Node* head;
 
 void insertNode(int value)      //  inserts nodes at the end of the linked list
 {
-    struct Node* newNode;
+    struct Node* newNode = (struct Node*) malloc(sizeof(struct Node));
     newNode->data = value;
     newNode->next = NULL;
 
@@ -37,7 +37,7 @@ void printList()
 {
     struct Node* traverse;
     traverse = head;
-    while (traverse != head)
+    while (traverse != NULL)
     {
         printf("%d ", traverse->data);
         traverse = traverse->next;
@@ -58,7 +58,13 @@ int listLength()
 {
     int length;
 
-    
+    struct Node* traverse = head;
+
+    while(traverse != NULL)
+    {
+        length +=1;
+        traverse = traverse->next;
+    }
 
     return length;
 }
@@ -66,5 +72,12 @@ int listLength()
 int main()
 {
     head = NULL;
+    insertNode(34);
+    insertNode(64);
+    insertNode(54);
+    insertNode(22);
+
+    printList();
+    printf("%d", listLength());
     return 0;
 }
