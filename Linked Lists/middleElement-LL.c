@@ -11,6 +11,8 @@ struct Node
 
 struct Node* head;
 
+int listLength();
+
 void insertNode(int value)      //  inserts nodes at the end of the linked list
 {
     struct Node* newNode = (struct Node*) malloc(sizeof(struct Node));
@@ -47,9 +49,23 @@ void printList()
 
 int returnMiddleElement()
 {
-    int middle;
+    int middle, middleIndex;
+    middleIndex = (int)(listLength()/2);
+    struct Node* traverse = head;
 
+    int length = 0;
 
+    while (traverse != NULL)
+    {
+        length += 1;
+        if(length == middleIndex)
+        {
+            break;
+        }
+        traverse = traverse->next;
+    }
+
+    middle = traverse->data;
 
     return middle;
 }
@@ -78,6 +94,8 @@ int main()
     insertNode(22);
 
     printList();
-    printf("%d", listLength());
+    printf("%d\n", listLength());
+
+    printf("middle element of linked list : %d\n", returnMiddleElement());
     return 0;
 }
