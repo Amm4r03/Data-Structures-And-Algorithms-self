@@ -45,6 +45,24 @@ void printList()
     printf("\n");
 }
 
+int returnMiddleElement()
+{
+    int middle;
+
+
+
+    return middle;
+}
+
+int listLength()
+{
+    int length;
+
+    
+
+    return length;
+}
+
 int main()
 {
     head = NULL;
