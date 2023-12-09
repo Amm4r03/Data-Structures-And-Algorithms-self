@@ -50,7 +50,7 @@ void printList()
 int returnMiddleElement()
 {
     int middle, middleIndex;
-    middleIndex = (int)(listLength()/2);
+    middleIndex = (int)(listLength()/2) + 1;
     struct Node* traverse = head;
 
     int length = 0;
@@ -72,7 +72,7 @@ int returnMiddleElement()
 
 int listLength()
 {
-    int length;
+    int length = 0;
     struct Node* traverse = head;
     while(traverse != NULL)
     {
