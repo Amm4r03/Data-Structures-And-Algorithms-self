@@ -11,8 +11,6 @@ struct Node
 
 struct Node* head;
 
-// function prototypes
-
 // adds an element to the end of the queue
 void enqueue(int value)
 {
