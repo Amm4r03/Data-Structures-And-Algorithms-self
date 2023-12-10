@@ -1,5 +1,57 @@
 // implementation of queue using linked list
 
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node
+{
+    int data;
+    struct Node* next;
+};
+
+struct Node* head;
+
+// function prototypes
+
+// adds an element to the end of the queue
+void enqueue(int value)
+{
+    struct Node* newNode = (struct Node*) malloc(sizeof(struct Node));
+    newNode->data = value;
+    newNode->next = NULL;
+
+    if (head == NULL)
+    {
+        head = newNode;
+        return;
+    }
+
+    struct Node* traverse = head;
+
+    while(traverse->next != NULL)
+    {
+        traverse = traverse->next;
+    }
+    traverse->next = newNode;
+}
+
+// removes elements from the queue
+int dequeue()
+{
+    struct Node* front = head;
+    if(head == NULL)
+    {
+        printf("=== UNDERFLOW ===\n");
+        return -1;
+    }
+    else
+    {
+        head = head->next;
+        int value = front->data;
+        free(front);
+        return value;
+    }
+}
 
 // returns the data element available at the front node of the queue without deleting it
 int front()
