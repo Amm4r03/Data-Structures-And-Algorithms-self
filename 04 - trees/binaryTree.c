@@ -64,6 +64,32 @@ void printInorder(struct TreeNode* root)
     return;
 }
 
+void printPreorder(struct TreeNode* root)
+{
+    if (root == NULL)
+    return;
+    else
+    {
+        printf("%d ", root->data);
+        printPreorder(root->left);
+        printPreorder(root->right);
+    }
+}
+
+void printPostorder(struct TreeNode* root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    else
+    {
+        printPostorder(root->left);
+        printPostorder(root->right);
+        printf("%d ", root->data);
+    }
+}
+
 bool search(struct TreeNode* root ,int value)
 {
     if (root == NULL) return false;
@@ -109,7 +135,14 @@ int main()
     }
     else printf("not found\n");
 
+    printf("inorder traversal :\t");
     printInorder(root);
+
+    printf("\npreorder traversal :\t");
+    printPreorder(root);
+
+    printf("\npostorder traversal :\t");
+    printPostorder(root);
 
     return 0;
 }
